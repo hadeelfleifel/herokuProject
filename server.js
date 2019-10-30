@@ -6,6 +6,14 @@ const mongoose = require("mongoose");
 const DB = require("./models/Tutorials");
 const tagDB = require("./models/Tag");
 const favDB = require("./models/Favorites")
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 var port = process.env.PORT || 9000;
 
 app.use(bodyParser.json());

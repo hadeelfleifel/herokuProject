@@ -8,7 +8,7 @@ export default class Show extends Component {
     tutorials: []
   };
   readTutorials = () => {
-    axios.get(`http://localhost:9000/data`).then(res => {
+    axios.get(`/data`).then(res => {
       const tutorials = res.data;
       this.setState({ tutorials });
     });

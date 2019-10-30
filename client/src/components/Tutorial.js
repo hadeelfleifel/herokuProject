@@ -4,7 +4,7 @@ import axios from "axios";
 export default class Tutorial extends Component {
   AddFav = id => {
     axios
-      .post(`http://localhost:9000/favorite/${id}`)
+      .post(`/favorite/${id}`)
       .then(res => {
         console.log(res.data);
       })

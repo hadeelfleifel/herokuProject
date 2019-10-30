@@ -8,7 +8,7 @@ export default class cards extends Component {
   };
 
   readTags = () => {
-    axios.get(`http://localhost:9000/tagsData`).then(res => {
+    axios.get(`/tagsData`).then(res => {
       const tags = res.data;
       this.setState({ tags });
     });

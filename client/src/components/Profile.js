@@ -34,7 +34,7 @@ class Profile extends Component {
 
   filterID = () => {
     axios
-      .get(`http://localhost:9000/filterId/${this.state.user_id}`)
+      .get(`/filterId/${this.state.user_id}`)
       .then(res => {
         const tutorials = res.data;
         this.setState({ tutorials });
@@ -42,17 +42,17 @@ class Profile extends Component {
   };
 
   delete = ID => {
-    axios.delete(`http://localhost:9000/deleteTut/${ID}`).then(res => {
+    axios.delete(`/deleteTut/${ID}`).then(res => {
       const Tutorials = res.data;
     });
   };
 
   getFav = () => {
-    axios.get(`http://localhost:9000/getFav`).then(res => {
+    axios.get(`/getFav`).then(res => {
       const Favourites = res.data;
       Favourites.map(Favourite => {
         let ID = Favourite.tutorial_id;
-        axios.get(`http://localhost:9000/getFavTut/${ID}`).then(res => {
+        axios.get(`/getFavTut/${ID}`).then(res => {
           const Favourites = res.data;
           this.setState({ Favourites });
           console.log("ID :", ID);
@@ -63,7 +63,7 @@ class Profile extends Component {
 
   deleteFav = ID => {
     console.log(ID);
-    axios.delete(`http://localhost:9000/deleteFav/${ID}`).then(res => {
+    axios.delete(`/deleteFav/${ID}`).then(res => {
       const Favourites = res.data;
       window.location.reload();
     });

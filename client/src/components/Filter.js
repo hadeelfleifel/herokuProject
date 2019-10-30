@@ -16,7 +16,7 @@ export default class Filter extends Component {
       match: { params }
     } = this.props;
     axios
-      .get(`http://localhost:9000/filter/${params.title}`)
+      .get(`/filter/${params.title}`)
       .then(({ data: tutorial }) => {
         console.log("tutorial", tutorial);
         this.setState({ tutorial });
@@ -25,7 +25,7 @@ export default class Filter extends Component {
 
   AddFav = id => {
     axios
-      .post(`http://localhost:9000/favorite/${id}`)
+      .post(`/favorite/${id}`)
       .then(res => {
         console.log(res.data);
       })

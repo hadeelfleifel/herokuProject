@@ -12,7 +12,7 @@ export default class Add extends Component {
   };
 
   readTags = () => {
-    axios.get(`http://localhost:9000/tagsData`).then(res => {
+    axios.get(`/tagsData`).then(res => {
       const tags = res.data;
       this.setState({ tags });
     });
@@ -33,7 +33,7 @@ export default class Add extends Component {
   addtutorial = tutorial => {
     console.log();
     axios
-      .post(`http://localhost:9000/addtutorial`, { tutorial })
+      .post(`/addtutorial`, { tutorial })
       .then(res => {
         this.setState({ tutorials: res.data });
         alert("Added Successfully !!")
@@ -47,7 +47,7 @@ export default class Add extends Component {
 
   addtag = tag => {
     axios
-      .post(`http://localhost:9000/addTag`, tag)
+      .post(`/addTag`, tag)
       .then(res => {
         
         this.setState({ tags: res.data });
