@@ -35,6 +35,8 @@ mongoose
 
 var Users = require("./routes/Users");
 
+app.use(express.json())
+
 app.use("/users", Users);
 
 app.get("/data", (req, res) => {

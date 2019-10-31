@@ -36,7 +36,7 @@ const tagsSchema = new Schema({
       }
       console.log("DOCS:", docs);
       cb(docs);
-    });
+    }).sort( { label: 1 } );
   };
   
   let insertTag = (cb, obj) => {
